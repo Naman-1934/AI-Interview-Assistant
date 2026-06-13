@@ -1,0 +1,16 @@
+pandas
+numpy
+scikit-learn
+tensorflow
+streamlit
+nltk
+spacy
+pdfplumber
+python-docx
+speechrecognition
+pydub
+matplotlib
+seaborn
+plotly
+mlflow
+joblib
