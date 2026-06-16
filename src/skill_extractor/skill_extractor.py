@@ -1,6 +1,6 @@
 import pandas as pd
 
-skills_df = pd.read_csv("data//master//skills_master.csv")
+skills_df = pd.read_csv("..//data//master//skills_master.csv")
 
 skills_list = (
 
