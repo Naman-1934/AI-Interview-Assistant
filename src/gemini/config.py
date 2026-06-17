@@ -11,5 +11,5 @@ API_KEY = os.getenv(
 print("API KEY:", API_KEY)
 
 client = genai.Client(
-    api_key="AQ.Ab8RN6IXwHGBcZ71A4UWy6jcRRL0uVQbzx9m1NBaJlw8lXnU9g"
+    api_key="API_KEY"
 )
