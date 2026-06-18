@@ -1,6 +1,10 @@
+import os
 import pandas as pd
 
-skills_df = pd.read_csv("..//data//master//skills_master.csv")
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_SKILLS_CSV = os.path.join(_HERE, "..", "..", "data", "master", "skills_master.csv")
+
+skills_df = pd.read_csv(_SKILLS_CSV)
 
 skills_list = (
 

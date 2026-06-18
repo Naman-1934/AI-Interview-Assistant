@@ -1,4 +1,4 @@
-from answer_evaluator import evaluator_answer
+from src.answer_evaluator.answer_evaluator import evaluator_answer
 
 result = evaluator_answer(
 
@@ -8,3 +8,5 @@ result = evaluator_answer(
 
     candidate_answer = "Decorator is used to add functionality to a function without modifying the original function."
 )
+
+print(result)

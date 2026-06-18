@@ -1,4 +1,4 @@
-from role_rules import ROLE_RULES
+from src.profile_builder.role_rules import ROLE_RULES
 
 def detect_role(skills):
     scores = {}

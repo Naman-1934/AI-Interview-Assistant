@@ -1,0 +1,8 @@
+When pytest wants to find your tests, it has to open and read the file first. That process is called collection.
+
+The moment pytest opened your file, Python saw run_interview(...) sitting there bare and said "okay I'll run this immediately" — and that fired a live API call to Gemini right then, before any test even started.
+
+The Gemini server was overloaded at that exact moment → 503 error → pytest crashed during collection, not during testing.
+
+******************** BEFORE ********************
+

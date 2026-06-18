@@ -1,12 +1,8 @@
-import sys
 import json
-import os
+import time
+from src.gemini.config import client
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from gemini.config import client
-
-def evaluator_answer(question, expected_answer, candidate_answer):
+def evaluator_answer(question, expected_answer, candidate_answer, retries=3, delay=5):
 
     prompt = f"""
 You are an expert technical interviewer.
@@ -42,10 +38,18 @@ Format:
     "feedback": ""
 }}
 """
-    response = client.models.generate_content(model = "gemini-2.5-flash", contents=prompt)
+    for attempt in range(retries):
+        try:
+            response = client.models.generate_content(
+                model="gemini-2.5-flash-lite",
+                contents=prompt
+            )
+            clean_text = response.text.replace("```json", "").replace("```", "").strip()
+            return json.loads(clean_text)
 
-    clean_text = (response.text.replace("```json", "").replace("```", "").strip())
+        except Exception as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+            if attempt < retries - 1:
+                time.sleep(delay)
 
-    result = json.loads(clean_text)
-
-    return result
+    raise RuntimeError("Gemini API failed after all retries.")

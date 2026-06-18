@@ -1,4 +1,4 @@
-from config import model
+from src.gemini.config import client
 import json
 
 
@@ -45,8 +45,6 @@ Format:
  }}
 ]
 """
-    response = model.generate_content(
-        prompt
-    )
+    response = client.models.generate_content(model="gemini-2.5-flash-lite",contents=prompt)
 
     return response.text
