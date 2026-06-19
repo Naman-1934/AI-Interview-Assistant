@@ -1,26 +1,15 @@
 import sys
 import os
-
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-sys.path.insert(0, project_root)
-
+from src.resume_parser.resume_parser import parse_resume
 from src.skill_extractor.skill_extractor import extract_skills
 
 
-sample_resume = """
+def test_extract_skills_from_resume():
+    text = parse_resume("data//sample//NAMAN_SHAH.pdf")
 
-Experienced Data Scientist
+    skills = extract_skills(text)
 
-Skills
+    assert isinstance(skills, list)
+    assert len(skills) > 0
 
-Python
-SQL
-Tensorflow
-Machine Learning
-Power BI
-
-"""
-
-Skills = extract_skills(sample_resume)
-
-print(Skills)
+    print("Extracted Skills:", skills)

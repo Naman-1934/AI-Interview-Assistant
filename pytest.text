@@ -6,3 +6,15 @@ The Gemini server was overloaded at that exact moment → 503 error → pytest c
 
 ******************** BEFORE ********************
 
+from src.interview_engine.interview_manager import run_interview
+
+# This code is just sitting outside — no function, no def
+results = run_interview(questions, candidate_answers)
+print(results)
+
+******************** AFTER ********************
+from src.interview_engine.interview_manager import run_interview
+
+def test_run_interview():        # ← added this
+    results = run_interview(questions, candidate_answers)
+    print(results)

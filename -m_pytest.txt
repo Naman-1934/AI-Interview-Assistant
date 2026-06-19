@@ -1,0 +1,16 @@
+python: This invokes the Python interpreter.
+
+-m pytest: The -m flag stands for "module". It tells Python to find the pytest library in your current environment and 
+run it as a script.
+
+Pro Tip: Using python -m pytest is generally safer than just typing pytest in your terminal because it guarantees that the 
+tests are run using the exact Python environment you are currently in (like an active virtual environment), 
+preventing unexpected "module not found" errors.
+
+src/skill_extractor/test_skill_extractor.py: This is the specific file path pointing to the tests you want to execute. 
+Instead of scanning your whole project and running every single test, pytest will only run the test functions found inside this 
+exact file.
+
+-v: This stands for verbose. By default, pytest just prints a tiny dot (.) for every test that passes. 
+The -v flag tells pytest to print the specific name of every individual test function it runs alongside its explicit 
+PASSED or FAILED status, making it much easier to see exactly what is happening.
