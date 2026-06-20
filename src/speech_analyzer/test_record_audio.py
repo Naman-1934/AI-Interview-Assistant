@@ -1,5 +1,5 @@
 import os
-from src.speech_analyzer.reccord_audio import record_audio
+from src.speech_analyzer.record_audio import record_audio
 
 def test_record_audio():
 

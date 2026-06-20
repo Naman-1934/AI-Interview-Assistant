@@ -6,7 +6,7 @@ import time
 load_dotenv()
 
 client = genai.Client(
-    api_key = "API_KEY"
+    api_key = "AQ.Ab8RN6ItUeTEUqfcIpM70Y4WgPoDbyZNytUqozXbpIOWWHzh7A"
 )
 
 MODEL_NAME = "gemini-2.5-flash"
